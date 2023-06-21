@@ -64,7 +64,7 @@ body * {
 }
 /* exemplo de posicionamento absoluto */
 #switch button {
-  width: 32px;
+  width: 33px;
   height: 32px;
   background: white var(--switch-bg-url) no-repeat center;
   border: 0;
@@ -75,11 +75,16 @@ body * {
   left: 0;
   z-index: 1;
   transform: translateY(-50%);
+
+  animation: slideback-botton 0.2s;
 }
 
 .light #switch button {
-  right: 0;
-  left: initial;
+  animation: slidein-botton 0.2s forwards;
+}
+
+#switch button:hover {
+  outline: 8px solid var(--highlight-color);
 }
 
 #switch span {
@@ -173,5 +178,25 @@ footer {
 
   .light {
     --bg-url: url(./assets/bg-desktop-light.jpg);
+  }
+}
+
+/* animações com keyframe */
+
+@keyframes slidein-botton {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slideback-botton {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
   }
 }
